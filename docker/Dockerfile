@@ -65,7 +65,7 @@ RUN DESTDIR=install make install
 WORKDIR /
 ##### SPS END #####
 
-FROM alpine:edge AS snapserver_builder
+FROM alpine:3.12 AS snapserver_builder
 WORKDIR /snapcast
 
 RUN apk add npm curl alpine-sdk
@@ -133,6 +133,6 @@ COPY ./docker/startup.sh startup.sh
 RUN chmod +x ./startup.sh
 
 # Remove anything we don't need.
-RUN rm -rf /lib/apk/db/*
+# RUN rm -rf /lib/apk/db/*
 
 ENTRYPOINT [ "./startup.sh" ]
