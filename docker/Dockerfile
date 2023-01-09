@@ -28,7 +28,8 @@ RUN apk -U add \
         xxd \
         libressl-dev \
         # openssl-dev \
-        libressl-dev \
+        # libressl-dev \
+        libgcrypt \
         libplist-dev
 
 ##### ALAC #####
