@@ -7,6 +7,7 @@ RUN test -n "$SHAIRPORT_SYNC_BRANCH"
 ARG NQPTP_BRANCH
 RUN test -n "$NQPTP_BRANCH"
 
+RUN echo "https://dl-cdn.alpinelinux.org/alpine/edge/testing/" >> /etc/apk/repositories
 RUN apk -U add \
         git \
         build-base \
@@ -68,13 +69,14 @@ WORKDIR /
 FROM alpine:edge AS snapserver_builder
 WORKDIR /snapcast
 
+RUN echo "https://dl-cdn.alpinelinux.org/alpine/edge/testing/" >> /etc/apk/repositories
 RUN apk add npm curl alpine-sdk
 RUN npm install --silent --save-dev -g typescript@4.3
 RUN curl -L https://github.com/badaix/snapweb/archive/refs/tags/v0.2.0.tar.gz | tar xz --directory / && cd /snapweb-0.2.0 && make
 
 # Shairport Sync Runtime System
 FROM crazymax/alpine-s6:edge-3.1.1.2
-
+RUN echo "https://dl-cdn.alpinelinux.org/alpine/edge/testing/" >> /etc/apk/repositories
 RUN apk -U add \
         alsa-lib \
         dbus \
