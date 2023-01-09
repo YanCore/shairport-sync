@@ -27,9 +27,10 @@ RUN apk -U add \
         ffmpeg-dev \
         xxd \
         libressl-dev \
-        openssl-dev \
         libplist-dev
-
+RUN apk -U add \
+        openssl-dev
+        
 ##### ALAC #####
 RUN git clone https://github.com/mikebrady/alac
 WORKDIR /alac
