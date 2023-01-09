@@ -27,9 +27,7 @@ RUN apk -U add \
         ffmpeg-dev \
         xxd \
         libressl-dev \
-        # openssl-dev \
-        # libressl-dev \
-        libgcrypt \
+        openssl-dev \
         libplist-dev
 
 ##### ALAC #####
