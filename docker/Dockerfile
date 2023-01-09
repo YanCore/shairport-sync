@@ -28,9 +28,9 @@ RUN apk -U add \
         xxd \
         libressl-dev \
         libplist-dev
-RUN apk -U add \
-        openssl-dev
-        
+# RUN apk -U add \
+#         openssl-dev
+
 ##### ALAC #####
 RUN git clone https://github.com/mikebrady/alac
 WORKDIR /alac
