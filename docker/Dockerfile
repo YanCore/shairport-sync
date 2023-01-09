@@ -125,10 +125,10 @@ RUN addgroup -g 29 docker_audio && addgroup shairport-sync docker_audio && addgr
 # snapcast
 RUN apk add --no-cache gdb \
                 # librespot \
-                snapcast-server \
-                dbus \
-                avahi \
-                avahi-compat-libdns_sd
+                snapcast-server
+                # dbus \
+                # avahi \
+                # avahi-compat-libdns_sd
 
 COPY --from=snapserver_builder /snapweb-0.2.0/dist /usr/share/snapserver/snapweb
 
