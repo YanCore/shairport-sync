@@ -97,7 +97,8 @@ RUN apk -U add \
         mandoc \
         man-pages \
         less \
-        less-doc
+        less-doc \
+        libressl
 
 # Copy build files.
 COPY --from=shairport_sync_builder /shairport-sync/build/install/usr/local/bin/shairport-sync /usr/local/bin/shairport-sync
