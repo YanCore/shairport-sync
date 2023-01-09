@@ -15,7 +15,7 @@ on:
       - '[0-9]+\.[0-9]+\.[0-9]+' # X.Y.Z
 
 env:
-  DOCKER_PLATFORMS: linux/386,linux/amd64,linux/arm/v6,linux/arm64,linux/arm/v7
+  DOCKER_PLATFORMS: linux/amd64 #linux/386,linux/amd64,linux/arm/v6,linux/arm64,linux/arm/v7
   NQPTP_BRANCH: main
 
 jobs:
@@ -58,18 +58,18 @@ jobs:
           username: ${{ secrets.DOCKER_REGISTRY_USER }}
           password: ${{ secrets.DOCKER_REGISTRY_TOKEN }}
 
-      - name: Build and push (classic)
-        uses: docker/build-push-action@v2
-        with:
-          context: ./
-          file: ./docker/classic/Dockerfile
-          platforms: ${{ env.DOCKER_PLATFORMS }}
-          push: true
-          tags: |
-            ${{ secrets.DOCKER_IMAGE_NAME }}:${{ env.GIT_TAG }}-classic
-            ${{ env.LATEST_TAG == 'true' && format('{0}:classic', secrets.DOCKER_IMAGE_NAME) || '' }}
-          build-args: |
-            SHAIRPORT_SYNC_BRANCH=${{ env.SHAIRPORT_SYNC_BRANCH }}
+      # - name: Build and push (classic)
+      #   uses: docker/build-push-action@v2
+      #   with:
+      #     context: ./
+      #     file: ./docker/classic/Dockerfile
+      #     platforms: ${{ env.DOCKER_PLATFORMS }}
+      #     push: true
+      #     tags: |
+      #       ${{ secrets.DOCKER_IMAGE_NAME }}:${{ env.GIT_TAG }}-classic
+      #       ${{ env.LATEST_TAG == 'true' && format('{0}:classic', secrets.DOCKER_IMAGE_NAME) || '' }}
+      #     build-args: |
+      #       SHAIRPORT_SYNC_BRANCH=${{ env.SHAIRPORT_SYNC_BRANCH }}
  
       - name: Build and push
         uses: docker/build-push-action@v2
