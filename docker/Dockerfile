@@ -120,7 +120,7 @@ RUN addgroup -g 29 docker_audio && addgroup shairport-sync docker_audio && addgr
 
 # snapcast
 RUN apk add --no-cache gdb \
-                librespot \
+                # librespot \
                 snapcast-server \
                 dbus \
                 avahi \
