@@ -137,6 +137,6 @@ COPY ./docker/startup.sh startup.sh
 RUN chmod +x ./startup.sh
 
 # Remove anything we don't need.
-# RUN rm -rf /lib/apk/db/*
+RUN rm -rf /lib/apk/db/*
 
 ENTRYPOINT [ "./startup.sh" ]
