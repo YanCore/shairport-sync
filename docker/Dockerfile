@@ -1,4 +1,4 @@
-FROM alpine:3.17 AS shairport_sync_builder
+FROM alpine:3.14 AS shairport_sync_builder
 
 # Check required arguments exist. These will be provided by the Github Action
 # Workflow and are required to ensure the correct branches are being used.
